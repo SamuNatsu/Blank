@@ -335,9 +335,10 @@ footer>div {
 #post-content p>code {
 	background-color: #ddd;
 	border-radius: .3em;
-	color: #888;
+	color: #d33;
 	margin: 0 .2em;
 	padding: 0 .5em;
+	word-break: break-all;
 }
 #post-content>table {
 	border: 1px solid #888;
@@ -415,4 +416,26 @@ footer>div {
 	position: fixed;
 	width: 100%;
 	z-index: 999;
+}
+
+/* Side buttons */
+.side-btn {
+	bottom: 2rem;
+	right: 2rem;
+	position: fixed;
+}
+.side-btn>div {
+	background-color: #fff;
+	border-radius: 100%;
+	cursor: pointer;
+	display: none;
+	height: 50px;
+	margin-top: 1rem;
+	padding: 10px;
+	transform: scale(1);
+	transition: transform .2s;
+	width: 50px;
+}
+.side-btn>div:hover {
+	transform: scale(1.2);
 }

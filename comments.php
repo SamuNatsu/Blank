@@ -29,7 +29,7 @@ function threadedComments($comments, $options)
 }
 ?>
 
-<div class="border-b-dashed-2">
+<div id="comments" class="border-b-dashed-2">
 	<?php $this->comments()->to($comments); ?>
 	<?php if ($this->allow('comment')): ?>
 	<div id="<?php $this->respondId(); ?>" class="border-l-solid margin-v-1 padding-l-1 padding-v-05">
