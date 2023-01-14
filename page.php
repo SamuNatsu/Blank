@@ -13,7 +13,7 @@
         <?php endif; ?>
     </div>
     <div class="border-t-solid padding-t-05" id="post-content">
-        <?php $this->content(); ?>
+        <?= removeBeforeMore($this->content); ?>
     </div>
     <div class="post-end border-b-dashed-2 margin-t-4">END</div>
     <?php $cc = is_null($this->fields->cc) ? $this->options->ccLicense : $this->fields->cc; ?>

@@ -244,7 +244,7 @@ function themeConfig($form)
 	$form->addInput($customFooter);
 }
 
-function minifyBegin($options)
+function minifyBegin($options): void
 {
 	ob_start('ob_gzhandler');
 	if ($options->minify === 'on')
@@ -253,7 +253,7 @@ function minifyBegin($options)
 	}
 }
 
-function minifyEnd($options)
+function minifyEnd($options): void
 {
 	if ($options->minify === 'on')
 	{
@@ -263,4 +263,14 @@ function minifyEnd($options)
 		echo $html;
 	}
 	ob_end_flush();
+}
+
+function removeBeforeMore(string $contents): string
+{
+	$matches = [];
+	if (preg_match('/<!--more-->/', $contents, $matches, PREG_OFFSET_CAPTURE) === 1)
+	{
+		return substr($contents, $matches[0][1] + 11);
+	}
+	return $contents;
 }

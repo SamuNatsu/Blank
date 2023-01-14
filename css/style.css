@@ -329,9 +329,6 @@ footer>div {
 	margin: 1em;
 	width: 100%;
 }
-#post-content p {
-	margin: .5em 0;
-}
 #post-content p>code {
 	background-color: #ddd;
 	border-radius: .3em;

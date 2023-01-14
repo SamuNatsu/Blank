@@ -16,7 +16,7 @@
     </div>
 	<div class="meta wrapper-meta margin-v-05 no-select"><?php _e('标签：'); ?><?php $this->tags('，', true, _t('没有标签')); ?></div>
     <div class="border-t-solid padding-t-05" id="post-content">
-        <?php $this->content(); ?>
+        <?= removeBeforeMore($this->content); ?>
     </div>
     <div class="post-end border-b-dashed-2 margin-t-4">END</div>
     <?php $cc = is_null($this->fields->cc) ? $this->options->ccLicense : $this->fields->cc; ?>

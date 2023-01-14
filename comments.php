@@ -29,6 +29,7 @@ function threadedComments($comments, $options)
 }
 ?>
 
+<?php if (is_null($this->fields->hide_comment) || $this->fields->hide_comment != 1): ?>
 <div id="comments" class="border-b-dashed-2">
 	<?php $this->comments()->to($comments); ?>
 	<?php if ($this->allow('comment')): ?>
@@ -61,3 +62,4 @@ function threadedComments($comments, $options)
     <?php $comments->pageNav('&laquo; 前一页', '后一页 &raquo;', 1, '...', [ 'wrapTag' => 'div', 'wrapClass' => 'page-nav', 'itemTag' => 'div', 'currentClass' => 'page-nav--cur', 'prevClass' => 'page-nav--prev', 'nextClass' => 'page-nav--next', 'textTag' => '']); ?>
 	<?php unset($comments); ?>
 </div>
+<?php endif; ?>
