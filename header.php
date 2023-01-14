@@ -154,7 +154,7 @@ minifyBegin($this->options);
 				</div>
 				<div>
 					<h4><?php _e('阅读'); ?></h4>
-					<div id="views">0</div>
+					<div id="views"><?= getViewStat(); ?></div>
 				</div>
 				<?php unset($stat); ?>
 			</div>

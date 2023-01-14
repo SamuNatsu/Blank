@@ -127,6 +127,8 @@ const initPjax = ()=>{
 			highlight()
 			renderMath(el)
 			initEmotion()
+			let els = document.querySelectorAll("#post-content a:not([data-pjax-state]):not([target])")
+			els.forEach((v)=>v.setAttribute("target", "_blank"))
 		}
 	})
 	document.addEventListener("pjax:error", (e)=>{
@@ -240,5 +242,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 		highlight()
 		renderMath(el)
 		initEmotion()
+		let els = document.querySelectorAll("#post-content a:not([data-pjax-state]):not([target])")
+		els.forEach((v)=>v.setAttribute("target", "_blank"))
 	}
 })

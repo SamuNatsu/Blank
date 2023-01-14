@@ -4,7 +4,7 @@
  * 
  * @package Blank Theme
  * @author SNRainiar
- * @version 0.0.3
+ * @version 0.0.4
  * @link https://rainiar.top
  */
 

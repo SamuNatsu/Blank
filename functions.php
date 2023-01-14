@@ -274,3 +274,71 @@ function removeBeforeMore(string $contents): string
 	}
 	return $contents;
 }
+
+function updateView($context): void
+{
+	$db = \Typecho\Db::get();
+	$stat = $db->fetchAll($db->select()->from('table.options')->where('name = ?', 'theme:blank:stat'));
+	if (count($stat) === 0)
+	{
+		initViewStat();
+	}
+
+	$views = \Typecho\Cookie::get('__blank_views');
+	if ($views !== null)
+	{
+		$views = base64_decode($views, true);
+		if ($views !== false)
+		{
+			$views = explode(',', $views);
+		}
+		else
+		{
+			$views = [];
+		}
+	}
+	else 
+	{
+		$views = [];
+	}
+	if (!in_array($context->cid, $views))
+	{
+		$context->incrIntField('views', 1, $context->cid);
+		$views[] = $context->cid;
+		$views = implode(',', $views);
+		$views = base64_encode($views);
+		\Typecho\Cookie::set('__blank_views', $views, 86400);
+		$stat = unserialize($stat[0]['value']);
+		$db->query($db->update('table.options')->rows(['value' => serialize($stat + 1)])->where('name = ?', 'theme:blank:stat'));
+	}
+}
+
+function initViewStat(): void
+{
+	$db = \Typecho\Db::get();
+	$fields = $db->fetchAll($db->select()->from('table.fields')->where('name = ?', 'views'));
+	$total = 0;
+
+	foreach ($fields as $i)
+	{
+		if ($i['int_value'] && $db->fetchRow($db->select()->from('table.contents')->where('cid = ? AND status = ?', $i['cid'], 'publish')))
+		{
+			$total += $i['int_value'];
+		}
+	}
+
+	$db->query($db->insert('table.options')->rows(['name' => 'theme:blank:stat', 'user' => '0', 'value' => serialize($total)]));
+}
+
+function getViewStat(): int
+{
+	$db = \Typecho\Db::get();
+	$stat = $db->fetchAll($db->select()->from('table.options')->where('name = ?', 'theme:blank:stat'));
+	if (count($stat) === 0)
+	{
+		initViewStat();
+		$stat = $db->fetchAll($db->select()->from('table.options')->where('name = ?', 'theme:blank:stat'));
+	}
+
+	return unserialize($stat[0]['value']);
+}
