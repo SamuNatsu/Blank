@@ -228,7 +228,7 @@ function themeConfig($form)
 	$customHead = new \Typecho\Widget\Helper\Form\Element\Textarea(
 		'customHead',
 		null,
-		null,
+		'',
 		_t('【自定义】头部标签附加代码'),
 		_t('在 &lt;head&gt;&lt;/head&gt; 标签中追加代码')
 	);
@@ -237,7 +237,7 @@ function themeConfig($form)
 	$customFooter = new \Typecho\Widget\Helper\Form\Element\Textarea(
 		'customFooter',
 		null,
-		null,
+		'',
 		_t('【自定义】页脚附加代码'),
 		_t('在 &lt;footer&gt;&lt;/footer&gt; 标签中追加代码')
 	);

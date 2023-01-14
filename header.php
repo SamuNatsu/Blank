@@ -138,7 +138,7 @@ minifyBegin($this->options);
 				<?php if ($this->options->customGravatar): ?>
 				<img src="<?php $this->options->customGravatar(); ?>" alt="<?php $this->options->gravatarName(); ?>" width="150" height="150">
 				<?php else: ?>
-				<img src="<?php echo \Typecho\Common::gravatarUrl($this->options->gravatarMail, 150, $this->request->isSecure()); ?>" width="150" height="150">
+				<img src="<?php echo \Typecho\Common::gravatarUrl($this->options->gravatarMail, 150, 'X', $this->request->isSecure()); ?>" width="150" height="150">
 				<?php endif; ?>
 			</a></div>
 			<h2 id="author"><?php $this->options->gravatarName(); ?></h2>
