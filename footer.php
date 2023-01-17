@@ -1,6 +1,6 @@
 		</div>
 	</div>
-	<div class="side-btn">
+	<div class="side-btn no-select">
 		<div class="side-btn-top"><img src="<?php $this->options->themeUrl('svg/top.svg'); ?>"></div>
 		<div class="side-btn-comment"><img src="<?php $this->options->themeUrl('svg/menu.svg'); ?>"></div>
 	</div>

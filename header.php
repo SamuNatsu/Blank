@@ -159,7 +159,7 @@ minifyBegin($this->options);
 				</div>
 				<?php unset($stat); ?>
 			</div>
-			<div id="contacts">
+			<div id="contacts" class="no-select">
 				<?php if ($this->options->biliUrl): ?>
 				<div><a href="<?php $this->options->biliUrl(); ?>" target="_blank" title="<?php _e('哔哩哔哩'); ?>"><img src="<?php $this->options->themeUrl('svg/bili.svg'); ?>"></a></div>
 				<?php endif; ?>
