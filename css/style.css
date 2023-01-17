@@ -332,6 +332,9 @@ footer>div {
 	margin: 1em;
 	width: 100%;
 }
+#post p {
+	line-height: 150%;
+}
 #post-content p code {
 	background-color: #ddd;
 	border-radius: .3em;

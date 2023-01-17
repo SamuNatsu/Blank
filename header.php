@@ -13,6 +13,7 @@ if ($this->options->gravatarService && !defined('__TYPECHO_GRAVATAR_PREFIX__'))
 	define('__TYPECHO_GRAVATAR_PREFIX__', $this->options->gravatarService);
 }
 
+\Blank\ThemeView::update($this);
 minifyBegin($this->options);
 ?>
 <!DOCTYPE html>
@@ -154,7 +155,7 @@ minifyBegin($this->options);
 				</div>
 				<div>
 					<h4><?php _e('阅读'); ?></h4>
-					<div id="views"><?= getViewStat(); ?></div>
+					<div id="views"><?= \Blank\ThemeView::getStatisticAll(); ?></div>
 				</div>
 				<?php unset($stat); ?>
 			</div>

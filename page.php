@@ -1,6 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
-<?php updateView($this); ?>
 
 <article>
     <h1 class="post-title margin-0 margin-b-02">
