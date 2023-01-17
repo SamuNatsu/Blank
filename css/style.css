@@ -307,6 +307,9 @@ footer>div {
 }
 
 /* Post content */
+#post-content {
+	word-break: break-all;
+}
 #post-content a {
 	color: #66f;
 }
@@ -329,13 +332,13 @@ footer>div {
 	margin: 1em;
 	width: 100%;
 }
-#post-content p>code {
+#post-content p code {
 	background-color: #ddd;
 	border-radius: .3em;
 	color: #d33;
 	margin: 0 .2em;
 	padding: 0 .5em;
-	word-break: break-all;
+	word-break: keep-all;
 }
 #post-content>table {
 	border: 1px solid #888;
@@ -346,7 +349,6 @@ footer>div {
 #post-content>table td {
 	border: 1px solid #888;
 	padding: 5px;
-	word-break: break-all;
 }
 #post-content>table th {
 	background-color: #666;
