@@ -261,7 +261,13 @@ const initWxShare = async ()=>{
 			url: window.location.origin + window.location.pathname + window.location.search,
 			title: document.querySelector("title").innerText
 		})
-		eval(s)
+		s = JSON.parse(s)
+		if (s.code !== 0) {
+			warn("Fail to initialize WeChat share: " + s.msg)
+		}
+		else {
+			eval(s.script)
+		}
 	}
 }
 
