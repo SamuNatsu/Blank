@@ -33,9 +33,30 @@ const executeAnimate = (context, time, transformFunction, easeFunction, callback
 	context.handle = requestAnimationFrame(step)
 }
 
-// Log
+// Log functions
 const log = (msg)=>{ console.log("[Blank] [" + window.location.pathname + "] " + msg) }
 const warn = (msg)=>{ console.warn("[Blank] [" + window.location.pathname + "] " + msg) }
+
+// Ajax functions
+const ajaxGet = (url, data)=>{
+	return new Promise((resolve, reject)=>{
+		let s = ''
+		if (data instanceof Object) {
+			Object.keys(data).forEach((key)=>{
+				if (s.length !== 0) { s += "&" }
+				s += encodeURI(key) + "=" + encodeURI(data[key])
+			})
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', url + "?" + s, true)
+		xhr.onload = ()=>{
+			if (xhr.status === 200) { resolve(xhr.responseText) }
+			else { reject(xhr.statusText) }
+		}
+		xhr.onerror = ()=>{ reject(xhr.statusText) }
+		xhr.send()
+	})
+}
 
 // Progress bar system
 const $progressContext = {
@@ -122,6 +143,7 @@ const initPjax = ()=>{
 	document.addEventListener("pjax:success", ()=>{
 		initSearch(false)
 		initSideBtn(false)
+		initWxShare()
 		let el = document.querySelector("#post-content")
 		if (el !== null) {
 			highlight()
@@ -229,6 +251,20 @@ const initSideBtn = (b)=>{
 	}
 }
 
+// Wx share
+const initWxShare = async ()=>{
+	if (wxShareSwitch === true) {
+		log("Initializing WeChat share...")
+
+		let s = await ajaxGet(siteUrl + "index.php/action/theme_blank", {
+			do: 'wx_share_script', 
+			url: window.location.origin + window.location.pathname + window.location.search,
+			title: document.querySelector("title").innerText
+		})
+		eval(s)
+	}
+}
+
 // Main entrance
 window.addEventListener('DOMContentLoaded', ()=>{
 	welcome()
@@ -236,6 +272,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	initPjax()
 	initSearch(true)
 	initSideBtn(true)
+	initWxShare()
 
 	let el = document.querySelector("#post-content")
 	if (el !== null) {

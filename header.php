@@ -97,6 +97,7 @@ minifyBegin($this->options);
 	</style>
 
 	<!-- Embeded Script -->
+	<script> let siteUrl = "<?php $this->options->siteUrl(); ?>"; </script>
 	<script> let blankThemeUrl = "<?php $this->options->themeUrl(); ?>"; </script>
 
 	<!-- Custom Head -->
