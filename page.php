@@ -8,7 +8,7 @@
     <div class="meta margin-v-05 no-select">
         <div title="<?php $this->date('c'); ?>"><?php $this->date(); ?></div>
         <?php if (!is_null($this->fields->views) && (is_null($this->fields->hide_views) || $this->fields->hide_views == 0)): ?>
-        <div>|</div>
+        <div class="hide-mobile">|</div>
         <div><?php _e("浏览量："); ?><?php $this->fields->views(); ?></div>
         <?php endif; ?>
     </div>

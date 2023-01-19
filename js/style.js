@@ -228,27 +228,46 @@ const initSearch = (b)=>{
 // Side button
 const initSideBtn = (b)=>{
 	if (b) {
-		let el = document.querySelectorAll(".side-btn-top")[0]
+		let el = document.querySelector(".side-btn-top")
 		el.onclick = ()=>elementScroll()
 		window.onscroll = ()=>{
+			let el = document.querySelector(".side-btn-top")
 			let cur = document.documentElement.scrollTop || document.body.scrollTop
-			if (cur > 1000) {
-				el.style.display = "block"
-			}
-			else {
-				el.style.display = "none"
-			}
+			if (cur > 1000) { el.style.display = "block" }
+			else { el.style.display = "none" }
+		}
+
+		el = document.querySelector(".mobile-btn-nav")
+		el.onclick = ()=>{
+			let el = document.querySelector("nav")
+			el.style.right = "0rem"
+		}
+
+		el = document.querySelector(".mobile-btn-nav-close")
+		el.onclick = ()=>{
+			let el = document.querySelector("nav")
+			el.style.right = "-10rem"
+		}
+
+		el = document.querySelector(".mobile-btn-aside")
+		el.onclick = ()=>{
+			let el = document.querySelector("aside")
+			el.style.left = "0rem"
+		}
+
+		el = document.querySelector(".mobile-btn-aside-close")
+		el.onclick = ()=>{
+			let el = document.querySelector("aside")
+			el.style.left = "-50rem"
 		}
 	}
 
-	let el = document.querySelectorAll(".side-btn-comment")[0]
+	let el = document.querySelector(".side-btn-comment")
 	if (document.querySelector("#comments") !== null) {
 		el.onclick = ()=>elementScroll(document.querySelector("#comments"))
 		el.style.display = "block"
 	}
-	else {
-		el.style.display = "none"
-	}
+	else { el.style.display = "none" }
 }
 
 // Wx share

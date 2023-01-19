@@ -4,7 +4,7 @@
  * 
  * @package Blank Theme
  * @author SNRainiar
- * @version 0.0.10
+ * @version 0.1.0
  * @link https://rainiar.top
  */
 
@@ -18,12 +18,12 @@ $this->need('header.php');
 		<a class="animate-u" href="<?php $this->permalink(); ?>"><?php $this->title(); ?></a>
 	</h1>
 	<div class="meta margin-v-05 no-select">
-		<div class="wrapper-meta"><?php $this->category(', ', true, _t('<u>没有分类</u>')); ?></div>
-		<div>|</div>
+		<div class="wrapper-meta hide-mobile"><?php $this->category(', ', true, _t('<u>没有分类</u>')); ?></div>
+		<div class="hide-mobile">|</div>
 		<div title="<?php $this->date('c'); ?>"><?php $this->date(); ?></div>
 		<?php if (!is_null($this->fields->views) && (is_null($this->fields->hide_views) || $this->fields->hide_views == 0)): ?>
-        <div>|</div>
-        <div><?php _e("浏览量："); ?><?php $this->fields->views(); ?></div>
+        <div class="hide-mobile">|</div>
+        <div class="hide-mobile"><?php _e("浏览量："); ?><?php $this->fields->views(); ?></div>
         <?php endif; ?>
 	</div>
 	<div class="archive-excerpt margin-v-1"><?php $this->excerpt(); ?></div>

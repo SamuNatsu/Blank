@@ -124,6 +124,7 @@ minifyBegin($this->options);
 		<h1 id="site-title"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a></h1>
 		<h2 id="site-dscrp"><?php $this->options->description(); ?></h2>
 		<nav class="flex-row flex-x-center">
+			<div class="mobile-btn-nav-close"><img src="<?php $this->options->themeUrl('svg/top.svg'); ?>"></div>
 			<div><a class="animate-u" href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a></div>
 			<?php \Widget\Contents\Page\Rows::alloc()->to($pages); ?>
 			<?php while ($pages->next()): ?>
@@ -134,8 +135,9 @@ minifyBegin($this->options);
 		</nav>
 	</header>
 
-	<div class="flex-row flex-c-center margin-r-1 width-100">
+	<div class="flex-row flex-c-center width-100">
 		<aside class="flex-col flex-x-center">
+			<div class="mobile-btn-aside-close"><img src="<?php $this->options->themeUrl('svg/top.svg'); ?>"></div>
 			<div id="gravatar"><a href="<?php $this->options->adminUrl('login.php'); ?>" target="_blank">
 				<?php if ($this->options->customGravatar): ?>
 				<img src="<?php $this->options->customGravatar(); ?>" alt="<?php $this->options->gravatarName(); ?>" width="150" height="150">

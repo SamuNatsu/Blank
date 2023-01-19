@@ -441,3 +441,94 @@ footer>div {
 .side-btn>div:hover {
 	transform: scale(1.2);
 }
+
+/* Mobile buttons */
+.mobile-btn-nav {
+	background-color: #fff;
+	box-shadow: 1px 1px 5px lightgray;
+	display: none;
+	height: 2rem;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 2rem;
+	z-index: 99;
+}
+
+.mobile-btn-nav-close {
+	display: none;
+    height: 2rem;
+    transform: rotate(90deg);
+	width: 2rem;
+}
+
+.mobile-btn-aside {
+	background-color: #fff;
+	box-shadow: 1px 1px 5px lightgray;
+	display: none;
+	height: 2rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 2rem;
+	z-index: 99;
+}
+
+.mobile-btn-aside-close {
+	cursor: pointer;
+	display: none;
+    height: 2rem;
+	margin-bottom: 2rem;
+    transform: rotate(-90deg);
+	width: 2rem;
+}
+
+/* Reactive */
+@media screen and (max-width: 768px) {
+	aside {
+		background: #eee;
+		box-shadow: 1px 0 5px grey;
+		height: 100%;
+		justify-content: center;
+		left: -50rem;
+		padding: 2rem;
+		position: fixed;
+		top: 0;
+		transition: left .3s;
+		z-index: 100;
+	}
+
+	nav {
+		background: #eee;
+		box-shadow: 0 1px 5px grey;
+		flex-direction: column;
+		height: 100%;
+		margin: 0;
+		padding: 5rem 1rem 1rem 1rem;
+		position: fixed;
+		top: 0;
+		transition: right .3s;
+		right: -10rem;
+		z-index: 100;
+	}
+	nav>div {
+		margin: 1rem;
+	}
+
+	#center {
+		margin: 0 2rem;
+		width: 90%;
+	}
+
+	#contacts>div {
+		margin-bottom: 1rem;
+	}
+
+	.hide-mobile {
+		display: none;
+	}
+
+	.mobile-btn-nav, .mobile-btn-nav-close, .mobile-btn-aside, .mobile-btn-aside-close {
+		display: block;
+	}
+}
