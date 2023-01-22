@@ -1,4 +1,4 @@
-/* Blank Style Srcipt | v0.0.1 */
+/* Blank Style Srcipt | v0.1.0 */
 
 // Ease functions
 const easeInCubic = (x)=>(x * x * x)
