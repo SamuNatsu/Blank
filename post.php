@@ -5,8 +5,8 @@
     <h1 class="post-title margin-0 margin-b-02">
         <a class="animate-u" href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
     </h1>
-    <div class="meta margin-v-05 no-select">
-		<div class="wrapper-meta"><?php $this->category(', ', true, _t('<u>没有分类</u>')); ?></div>
+    <div class="meta">
+		<div class="wrapper-meta"><?php $this->category(', ', true, _t('<i>没有分类</i>')); ?></div>
 		<div class="hide-mobile">|</div>
         <div title="<?php $this->date('c'); ?>"><?php $this->date(); ?></div>
         <?php if (!is_null($this->fields->views) && (is_null($this->fields->hide_views) || $this->fields->hide_views == 0)): ?>
@@ -14,7 +14,7 @@
         <div><?php _e("浏览量："); ?><?php $this->fields->views(); ?></div>
         <?php endif; ?>
     </div>
-	<div class="meta wrapper-meta margin-v-05 no-select"><?php _e('标签：'); ?><?php $this->tags('，', true, _t('没有标签')); ?></div>
+	<div class="meta wrapper-meta"><?php _e('标签：'); ?><?php $this->tags('，', true, _t('没有标签')); ?></div>
     <div class="border-t-solid padding-t-05" id="post-content">
         <?= removeBeforeMore($this->content); ?>
     </div>

@@ -5,7 +5,7 @@
     <h1 class="post-title margin-0 margin-b-02">
         <a class="animate-u" href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
     </h1>
-    <div class="meta margin-v-05 no-select">
+    <div class="meta">
         <div title="<?php $this->date('c'); ?>"><?php $this->date(); ?></div>
         <?php if (!is_null($this->fields->views) && (is_null($this->fields->hide_views) || $this->fields->hide_views == 0)): ?>
         <div class="hide-mobile">|</div>

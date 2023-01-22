@@ -24,11 +24,11 @@ minifyBegin($this->options);
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title><?php $this->archiveTitle([
-            'category' => _t('分类「%s」下的文章'),
-            'search'   => _t('包含关键字「%s」的文章'),
-            'tag'      => _t('标签「%s」下的文章'),
-            'author'   => _t('「%s」发布的文章')
-        ], '', ' | '); ?><?php $this->options->title(); ?></title>
+        'category' => _t('分类「%s」下的文章'),
+        'search'   => _t('包含关键字「%s」的文章'),
+        'tag'      => _t('标签「%s」下的文章'),
+        'author'   => _t('「%s」发布的文章')
+    ], '', ' | '); ?><?php $this->options->title(); ?></title>
 
 	<!-- Stylesheet Links -->
 	<?php if ($this->options->favicon): ?>
@@ -107,20 +107,20 @@ minifyBegin($this->options);
 	<?php $this->header(); ?>
 </head>
 
-<body class="flex-col flex-x-center width-100">
+<body>
 	<?php if ($this->options->maintainMode === 'on'): ?>
-	<div class="maintain-banner padding-v-1 no-select width-100"><?php _e('维护模式已开启，请进入'); ?><a href="<?php $this->options->adminUrl('options-theme.php'); ?>" target="_blank"><?php _e('设置外观'); ?></a><?php _e('关闭'); ?></div>
+	<div class="maintain"><?php _e('维护模式已开启，请进入'); ?><a href="<?php $this->options->adminUrl('options-theme.php'); ?>" target="_blank"><?php _e('设置外观'); ?></a><?php _e('关闭'); ?></div>
 	<?php endif; ?>
 
-	<div id="search-layer" class="flex-row flex-c-center flex-x-center">
-		<div id="search-bg"></div>
-		<form id="search-bar" class="flex-row" method="post" action="<?php $this->options->siteUrl(); ?>">
+	<div class="search-layer">
+		<div class="search-bg"></div>
+		<form action="<?php $this->options->siteUrl(); ?>" class="search-bar" method="post">
 			<input type="text" name="s" placeholder="<?php _e('搜点什么'); ?>">
-			<button type="submit" class="flex-row flex-c-center flex-x-center"><img src="<?php $this->options->themeUrl('svg/search.svg'); ?>"></button>
+			<button type="submit"><img src="<?php $this->options->themeUrl('svg/search.svg'); ?>"></button>
 		</form>
 	</div>
 
-	<header class="flex-col flex-x-center">
+	<header>
 		<h1 id="site-title"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a></h1>
 		<h2 id="site-dscrp"><?php $this->options->description(); ?></h2>
 		<nav class="flex-row flex-x-center">

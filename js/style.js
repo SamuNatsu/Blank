@@ -70,7 +70,11 @@ const initProgress = ()=>{
 	log("Initializing progress bar...")
 
 	let el = document.createElement("style")
-	el.innerText = ".progress-bar{background:linear-gradient(90deg,rgba(255,0,0,1) 0%,rgba(255,154,0,1) 10%,rgba(208,222,33,1) 20%,rgba(79,220,74,1) 30%,rgba(63,218,216,1) 40%,rgba(47,201,226,1) 50%,rgba(28,127,238,1) 60%,rgba(95,21,242,1) 70%,rgba(186,12,248,1) 80%,rgba(251,7,217,1) 90%,rgba(255,0,0,1) 100%);box-shadow:0 1px 5px #888;height:5px;left:0;position:fixed;top:-10px;width:100%;z-index:10000}"
+	el.innerText = ".progress-bar{background:\
+linear-gradient(90deg,#f00 0%,#ff9a00 10%,#d0de21 20%,#4fdc4a 30%,\
+#3fdad8 40%,#2fc9e2 50%,#1c7fee 60%,#5f15f2 70%,#ba0cf8 80%,#fb07d9 90%,\
+#f00 100%);box-shadow:0 1px 5px #888;height:5px;left:0;position:fixed;\
+top:-10px;width:100%;z-index:10000}"
 	document.head.append(el)
 
 	$progressContext.bar = document.createElement("div")
@@ -143,7 +147,7 @@ const initPjax = ()=>{
 	document.addEventListener("pjax:success", ()=>{
 		initSearch(false)
 		initSideBtn(false)
-		initWxShare()
+
 		let el = document.querySelector("#post-content")
 		if (el !== null) {
 			highlight()
@@ -166,7 +170,7 @@ const welcome = ()=>{
 |\\   __  \\|\\  \\     |\\   __  \\|\\   ___  \\|\\  \\|\\  \\     \n\
 \\ \\  \\|\\ /\\ \\  \\    \\ \\  \\|\\  \\ \\  \\\\ \\  \\ \\  \\/  /|_        A Simple and Pure Theme for Typecho\n\
  \\ \\   __  \\ \\  \\    \\ \\   __  \\ \\  \\\\ \\  \\ \\   ___  \\       Made By SNRainiar(https://rainiar.top)\n\
-  \\ \\  \\|\\  \\ \\  \\____\\ \\  \\ \\  \\ \\  \\\\ \\  \\ \\  \\\\ \\  \\      v0.0.1\n\
+  \\ \\  \\|\\  \\ \\  \\____\\ \\  \\ \\  \\ \\  \\\\ \\  \\ \\  \\\\ \\  \\      v0.1.0\n\
    \\ \\_______\\ \\_______\\ \\__\\ \\__\\ \\__\\\\ \\__\\ \\__\\\\ \\__\\\n\
     \\|_______|\\|_______|\\|__|\\|__|\\|__| \\|__|\\|__| \\|__|\n\
 \n\
@@ -216,12 +220,12 @@ const initEmotion = ()=>{
 // Search
 const initSearch = (b)=>{
 	if (b) {
-		document.querySelector("#search-bg").onclick = ()=>{
-			document.querySelector("#search-layer").style.display = "none"
+		document.querySelector(".search-bg").onclick = ()=>{
+			document.querySelector(".search-layer").style.display = "none"
 		}
 	}
 	document.querySelector("#search-btn").onclick = ()=>{
-		document.querySelector("#search-layer").style.display = "flex"
+		document.querySelector(".search-layer").style.display = "flex"
 	}
 }
 
@@ -270,24 +274,9 @@ const initSideBtn = (b)=>{
 	else { el.style.display = "none" }
 }
 
-// Wx share
-const initWxShare = async ()=>{
-	if (wxShareSwitch === true) {
-		log("Initializing WeChat share...")
-
-		let s = await ajaxGet(siteUrl + "index.php/action/theme_blank", {
-			do: 'wx_share_script', 
-			url: window.location.origin + window.location.pathname + window.location.search,
-			title: document.querySelector("title").innerText
-		})
-		s = JSON.parse(s)
-		if (s.code !== 0) {
-			warn("Fail to initialize WeChat share: " + s.msg)
-		}
-		else {
-			eval(s.script)
-		}
-	}
+// Share
+const genShareText = ()=>{
+	
 }
 
 // Main entrance
@@ -297,7 +286,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	initPjax()
 	initSearch(true)
 	initSideBtn(true)
-	initWxShare()
 
 	let el = document.querySelector("#post-content")
 	if (el !== null) {

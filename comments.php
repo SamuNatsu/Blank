@@ -12,7 +12,7 @@ function threadedComments($comments, $options)
 			<div class="comment-gravatar"><?php $comments->gravatar(40); ?></div>
 			<div class="comment-name animate-u"><?php $comments->author(); ?></div>
 		</div>
-		<div class="meta no-select">
+		<div class="meta">
 			<div title="<?php $comments->date('c'); ?>"><?php $comments->date('Y/m/d H:i:s'); ?></div>
 			<div>|</div>
 			<div class="comment-reply"><?php $comments->reply(); ?></div>
