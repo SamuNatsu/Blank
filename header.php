@@ -50,7 +50,7 @@ minifyBegin($this->options);
 
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/OwO.min.css'); ?>">
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/common.css'); ?>">
-	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css?v=0.1.0'); ?>">
+	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css?v=0.1.1'); ?>">
 
 	<?php if ($this->options->pjaxService): ?>
 	<script defer src="<?php $this->options->pjaxService(); ?>"></script>
@@ -83,7 +83,7 @@ minifyBegin($this->options);
 	<?php endif; ?>
 
 	<script defer src="<?php $this->options->themeUrl('js/OwO.min.js'); ?>"></script>
-	<script src="<?php $this->options->themeUrl('js/style.js?v=0.1.0'); ?>"></script>
+	<script src="<?php $this->options->themeUrl('js/style.js?v=0.1.1'); ?>"></script>
 
 	<style>
 		@font-face {
