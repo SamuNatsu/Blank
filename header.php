@@ -19,7 +19,6 @@ minifyBegin($this->options);
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Meta -->
 	<meta charset="<?php $this->options->charset(); ?>">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -30,7 +29,6 @@ minifyBegin($this->options);
         'author'   => _t('「%s」发布的文章')
     ], '', ' | '); ?><?php $this->options->title(); ?></title>
 
-	<!-- Stylesheet Links -->
 	<?php if ($this->options->favicon): ?>
 	<link rel="icon" href="<?php $this->options->favicon(); ?>">
 	<?php endif; ?>
@@ -54,7 +52,6 @@ minifyBegin($this->options);
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/common.css'); ?>">
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css?v=0.1.0'); ?>">
 
-	<!-- Script Links -->
 	<?php if ($this->options->pjaxService): ?>
 	<script defer src="<?php $this->options->pjaxService(); ?>"></script>
 	<?php else: ?>
@@ -88,7 +85,6 @@ minifyBegin($this->options);
 	<script defer src="<?php $this->options->themeUrl('js/OwO.min.js'); ?>"></script>
 	<script src="<?php $this->options->themeUrl('js/style.js?v=0.1.0'); ?>"></script>
 
-	<!-- Embeded Stylesheet -->
 	<style>
 		@font-face {
 			font-family: 'smiley-sans';
@@ -96,18 +92,22 @@ minifyBegin($this->options);
 		}
 	</style>
 
-	<!-- Embeded Script -->
 	<script> let siteUrl = "<?php $this->options->siteUrl(); ?>"; </script>
 	<script> let blankThemeUrl = "<?php $this->options->themeUrl(); ?>"; </script>
 
-	<!-- Custom Head -->
 	<?php $this->options->customHead(); ?>
 
-	<!-- Typecho Header -->
 	<?php $this->header(); ?>
 </head>
 
 <body>
+	<div class="loading-frame">
+		<div class="loading-text">Loading</div>
+		<div class="loading-spin" style="--spin-delay:0;--spin-time:1s;--spin-size:5rem"></div>
+		<div class="loading-spin" style="--spin-delay:.2s;--spin-time:2s;--spin-size:6rem"></div>
+		<div class="loading-spin" style="--spin-delay:.5s;--spin-time:3s;--spin-size:7rem"></div>
+	</div>
+
 	<?php if ($this->options->maintainMode === 'on'): ?>
 	<div class="maintain"><?php _e('维护模式已开启，请进入'); ?><a href="<?php $this->options->adminUrl('options-theme.php'); ?>" target="_blank"><?php _e('设置外观'); ?></a><?php _e('关闭'); ?></div>
 	<?php endif; ?>

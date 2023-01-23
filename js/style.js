@@ -1,4 +1,4 @@
-/* Blank Style Srcipt | v0.1.0 */
+/* Blank Style Srcipt | v0.1.1 */
 
 // Ease functions
 const easeInCubic = (x)=>(x * x * x)
@@ -279,7 +279,7 @@ const genShareText = ()=>{
 	
 }
 
-// Main entrance
+// On DOM loaded
 window.addEventListener('DOMContentLoaded', ()=>{
 	welcome()
 	initProgress()
@@ -296,3 +296,21 @@ window.addEventListener('DOMContentLoaded', ()=>{
 		els.forEach((v)=>v.setAttribute("target", "_blank"))
 	}
 })
+
+// On all loaded
+window.onload = ()=>{
+	const ctx = {
+		handle: null,
+		start: null,
+		last: null,
+		done: false,
+		frame: document.querySelector(".loading-frame")
+	}
+	executeAnimate(
+		ctx, 
+		500,
+		(x)=>{ ctx.frame.style.opacity = (1 - x) + "" },
+		easeInCubic,
+		()=>{ ctx.frame.style.display = "none"}
+	)
+}

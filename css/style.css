@@ -1,4 +1,4 @@
-/*! Blank Theme Main Style | v0.1.0 */
+/*! Blank Theme Main Style | v0.1.1 */
 /* Key frame animates */
 @keyframes shake {
 	0% { transform: rotate(0) }
@@ -46,7 +46,6 @@ button {
 button:hover {
 	background: #333;
 }
-	
 
 header {
 	align-items: center;
@@ -519,6 +518,51 @@ footer>div {
 	margin-bottom: 2rem;
     transform: rotate(-90deg);
 	width: 2rem;
+}
+
+/* Loading frame */
+@keyframes spin {
+	0% { transform: rotate(0) }
+	50% { transform: rotate(180deg) }
+	100% { transform: rotate(360deg) }
+}
+
+.loading-frame {
+	align-items: center;
+	background: #fff;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+	z-index: 10001;
+}
+
+.loading-text {
+	background: #fff;
+	color: #ccc;
+	font-size: 2rem;
+	font-weight: bold;
+	padding: .2rem 0;
+	text-align: center;
+	user-select: none;
+	width: 100%;
+	z-index: 10003;
+}
+
+.loading-spin {
+	animation-delay: var(--spin-delay);
+	animation-duration: var(--spin-time);
+	animation-iteration-count: infinite;
+	animation-name: spin;
+	animation-timing-function: linear;
+	border: 3px solid #ccc;
+	border-right-color: transparent;
+	border-radius: 100%;
+	height: var(--spin-size);
+	position: absolute;
+	width: var(--spin-size);
+	z-index: 10002;
 }
 
 /* Reactive */
