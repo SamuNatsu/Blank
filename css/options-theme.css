@@ -1,0 +1,76 @@
+/*! Blank Theme Options Extend Style | v0.1.0 */
+hr {
+	border: 0;
+	border-top: 2px solid transparent;
+	margin: 2em 0;
+}
+
+.bt-banner {
+	background: #fff;
+	border: 2px solid #ddd;
+	border-radius: 1rem;
+	margin: .5rem 0;
+	padding: 1rem;
+}
+
+.bt-banner * {
+	margin: 0;
+}
+.bt-banner a {
+	color: inherit;
+}
+.bt-banner h3 {
+	margin-bottom: .5rem;
+}
+
+.bt-banner-info {
+	background: #ddf;
+	border: 2px solid #77d;
+	color: #00c;
+}
+.bt-banner-success {
+	background: #bfb;
+	border: 2px solid #7d7;
+	color: #080;
+}
+
+.bt-btn {
+	border: 0;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	margin-right: 1rem;
+	margin-top: .5rem;
+	padding: .5rem;
+	width: fit-content;
+}
+.bt-btn:hover {
+	background: #555;
+}
+
+.bt-btn-top {
+	height: 1rem;
+	margin-left: .2rem;
+	user-select: none;
+}
+
+.bt-title {
+	position: relative;
+}
+.bt-title::after {
+	border: 2px solid #ddd;
+	border-radius: 2px;
+	content: '';
+	left: 0;
+	position: absolute;
+	top: 90%;
+	width: 100%;
+}
+
+.bt-sub-title::before {
+	border: 2px solid #ddd;
+	border-radius: 2px;
+	content: '';
+	height: 100%;
+	margin-right: 5px;
+}
