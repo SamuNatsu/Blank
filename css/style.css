@@ -1,4 +1,4 @@
-/*! Blank Theme Main Style | v0.1.1 */
+/*! Blank Theme Main Style | v0.1.2 */
 /* Key frame animates */
 @keyframes shake {
 	0% { transform: rotate(0) }
@@ -563,6 +563,13 @@ footer>div {
 	position: absolute;
 	width: var(--spin-size);
 	z-index: 10002;
+}
+
+/* Katex fix */
+.katex-display {
+	background: white;
+	overflow: auto;
+	padding: 1rem .5rem;
 }
 
 /* Reactive */
