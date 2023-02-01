@@ -1,19 +1,19 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
-if ($this->options->maintainMode === 'on' && !$this->user->pass('administrator', true))
+if ($this->options->isMaintaining === 'on' && !$this->user->pass('administrator', true))
 {
 	$this->response->setStatus(501);
 	$this->need('501.php');
 	exit;
 }
 
-if ($this->options->gravatarService && !defined('__TYPECHO_GRAVATAR_PREFIX__'))
+if ($this->options->gravatarMirror && !defined('__TYPECHO_GRAVATAR_PREFIX__'))
 {
-	define('__TYPECHO_GRAVATAR_PREFIX__', $this->options->gravatarService);
+	define('__TYPECHO_GRAVATAR_PREFIX__', $this->options->gravatarMirror);
 }
 
-\Blank\ThemeView::update($this);
+\Blank\View::update($this);
 minifyBegin($this->options);
 ?>
 <!DOCTYPE html>
@@ -29,8 +29,8 @@ minifyBegin($this->options);
         'author'   => _t('「%s」发布的文章')
     ], '', ' | '); ?><?php $this->options->title(); ?></title>
 
-	<?php if ($this->options->favicon): ?>
-	<link rel="icon" href="<?php $this->options->favicon(); ?>">
+	<?php if ($this->options->faviconUrl): ?>
+	<link rel="icon" href="<?php $this->options->faviconUrl(); ?>">
 	<?php endif; ?>
 
 	<?php if ($this->options->modernNormalize): ?>
@@ -50,7 +50,7 @@ minifyBegin($this->options);
 
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/OwO.min.css'); ?>">
 	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/common.css'); ?>">
-	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css?v=0.1.1'); ?>">
+	<link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css?v=0.1.2'); ?>">
 
 	<?php if ($this->options->pjaxService): ?>
 	<script defer src="<?php $this->options->pjaxService(); ?>"></script>
@@ -108,7 +108,7 @@ minifyBegin($this->options);
 		<div class="loading-spin" style="--spin-delay:.5s;--spin-time:3s;--spin-size:7rem"></div>
 	</div>
 
-	<?php if ($this->options->maintainMode === 'on'): ?>
+	<?php if ($this->options->isMaintaining === 'on'): ?>
 	<div class="maintain"><?php _e('维护模式已开启，请进入'); ?><a href="<?php $this->options->adminUrl('options-theme.php'); ?>" target="_blank"><?php _e('设置外观'); ?></a><?php _e('关闭'); ?></div>
 	<?php endif; ?>
 
@@ -158,7 +158,7 @@ minifyBegin($this->options);
 				</div>
 				<div>
 					<h4><?php _e('阅读'); ?></h4>
-					<div id="views"><?= \Blank\ThemeView::getStatisticAll(); ?></div>
+					<div id="views"><?= \Blank\View::getTotalViews(); ?></div>
 				</div>
 				<?php unset($stat); ?>
 			</div>

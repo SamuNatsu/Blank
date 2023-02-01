@@ -16,7 +16,7 @@
         <?= removeBeforeMore($this->content); ?>
     </div>
     <div class="post-end border-b-dashed-2 margin-t-4 no-select">END</div>
-    <?php $cc = is_null($this->fields->cc) ? $this->options->ccLicense : $this->fields->cc; ?>
+    <?php $cc = is_null($this->fields->cc) ? $this->options->defaultCC : $this->fields->cc; ?>
     <?php if ($cc === 'zero'): ?>
     <div class="post-cc margin-1">
         <a class="animate-u" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 | <?php _e("公共领域"); ?></a>
