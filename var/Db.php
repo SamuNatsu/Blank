@@ -95,7 +95,7 @@ class Db
 	/**
 	 * Destructor
 	 */
-	private function __destruct()
+	public function __destruct()
 	{
 		$this->sync();
 	}
